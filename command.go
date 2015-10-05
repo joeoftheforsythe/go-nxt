@@ -1,7 +1,5 @@
 package nxt
 
-import "fmt"
-
 // Command represents a command that is sent to the NXT and the
 // optional reply.  The ReplyChannel is the channel that the
 // NXT should send the reply to.
@@ -18,7 +16,6 @@ func newCommand(responseRequiredCommandType CommandType, noResponseRequiredComma
 	} else {
 		commandType = noResponseRequiredCommandType
 	}
-	fmt.Println("here")
 
 	return &Command{
 		Telegram:     newTelegramWithMessage(commandType, command, message),

@@ -26,13 +26,9 @@ func PlaySoundFile(filename string, loop bool, replyChannel chan *ReplyTelegram)
 // To wait for the reply, pass in a replyChannel; to not wait, pass in nil
 // for the replyChannel.
 func PlayTone(frequency int, duration int, replyChannel chan *ReplyTelegram) *Command {
-	fmt.Println("In library code")
 	frequencyBytes := []byte{calculateLSB(frequency), calculateMSB(frequency)}
-	fmt.Println(frequencyBytes)
 	durationBytes := []byte{calculateLSB(duration), calculateMSB(duration)}
-	fmt.Println(durationBytes)
 	message := append(frequencyBytes, durationBytes...)
-	fmt.Println(message)
 
 	return NewDirectCommand(0x03, message, replyChannel)
 }

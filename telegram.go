@@ -68,18 +68,9 @@ func newTelegramWithMessage(commandType CommandType, command CommandCode, messag
 		message = make([]byte, MAX_MESSAGE_BYTES)
 	}
 
-	fmt.Println("In telegram")
-	t := &Telegram{
+	return &Telegram{
 		Type:    commandType,
 		Command: command,
 		Message: message,
 	}
-	fmt.Println("In telegram")
-	fmt.Println(t)
-	return t
-	//return &Telegram{
-	//Type:    commandType,
-	//Command: command,
-	//Message: message,
-	//}
 }
