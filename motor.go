@@ -5,7 +5,7 @@ type Motor struct {
 }
 
 func (m *Motor) MoveMotor(replyChannel chan *ReplyTelegram) *Command {
-	moveForward := append([]byte{m.ByteCode()}, []byte{0x64, 0x07, 0x00, 0x00, 0x20, 0xF4, 0x01}...)
+	moveForward := append([]byte{m.ByteCode()}, []byte{0x64, 0x05, 0x02, 0x00, 0x20, 0x00, 0x00, 0x00, 0x00}...)
 	return NewDirectCommand(0x04, moveForward, replyChannel)
 }
 
